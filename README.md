@@ -1,4 +1,4 @@
-# dubby_java_lab（dubby的Java实验室）
+# Dubby的Java实验室
 
 > 记录平时学习Java的一些代码，关于的相关描述和解释可以在 [www.dubby.cn](www.dubby.cn) 上找到文章，这也是我的个人博客。
 
