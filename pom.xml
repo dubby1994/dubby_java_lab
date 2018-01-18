@@ -22,9 +22,13 @@
         </plugins>
     </build>
     <modules>
-        <module>download</module>
-        <module>socks-proxy</module>
+        <module>multithreading_download</module>
+        <module>socks_proxy</module>
         <module>file_tools</module>
+        <module>have_a_try</module>
+        <module>id_generator</module>
+        <module>secret_tools</module>
+        <module>qrcode</module>
     </modules>
 
 </project>
