@@ -6,7 +6,7 @@ import cn.dubby.java.lab.timeout.method.MethodAwareInterrupt2;
 import cn.dubby.java.lab.timeout.method.MethodUnawareInterrupt;
 import cn.dubby.java.lab.timeout.wrapper.TimeoutWrapper;
 import cn.dubby.java.lab.timeout.wrapper.TimeoutWrapperAsync;
-import cn.dubby.java.lab.timeout.wrapper.TimeoutWrapperWithInterrupt;
+import cn.dubby.java.lab.timeout.wrapper.TimeoutWrapperSync;
 
 /**
  * Created by yangzheng03 on 2018/1/18.
@@ -29,12 +29,12 @@ public class TestTimeoutWrapperWithInterrupt {
 
     private static void testAwareInterrupt() {
         Method method = new MethodAwareInterrupt();
-        TimeoutWrapper timeoutWrapper = new TimeoutWrapperWithInterrupt(method);
+        TimeoutWrapper timeoutWrapper = new TimeoutWrapperSync(method);
         testTimeout(timeoutWrapper);
 
         System.out.println();
         method = new MethodAwareInterrupt2();
-        timeoutWrapper = new TimeoutWrapperWithInterrupt(method);
+        timeoutWrapper = new TimeoutWrapperSync(method);
         testTimeout(timeoutWrapper);
     }
 

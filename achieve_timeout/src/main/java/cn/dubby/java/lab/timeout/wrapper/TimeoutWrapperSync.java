@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 /**
  * Created by yangzheng03 on 2018/1/18.
  */
-public class TimeoutWrapperWithInterrupt implements TimeoutWrapper {
+public class TimeoutWrapperSync implements TimeoutWrapper {
     private static final ThreadGroup threadGroup = new ThreadGroup("timeout-check-thread-group-");
 
     private static final ScheduledExecutorService TIMEOUT_CHECK_THREAD_POOL = Executors.newScheduledThreadPool(8, new ThreadFactory() {
@@ -20,13 +20,13 @@ public class TimeoutWrapperWithInterrupt implements TimeoutWrapper {
 
     private Method method;
 
-    public TimeoutWrapperWithInterrupt(Method method) {
+    public TimeoutWrapperSync(Method method) {
         this.method = method;
     }
 
     @Override
     public String doSomeThing(String someThing, long timeout) {
-        InterruptTimeoutCheckRunnable timeoutCheckRunnable = new InterruptTimeoutCheckRunnable(Thread.currentThread(), timeout);
+        SyncTimeoutCheckRunnable timeoutCheckRunnable = new SyncTimeoutCheckRunnable(Thread.currentThread(), timeout);
         ScheduledFuture<?> future = TIMEOUT_CHECK_THREAD_POOL.scheduleAtFixedRate(timeoutCheckRunnable, 0, timeout, TimeUnit.MILLISECONDS);
         String result = method.doSomeThing(someThing);
         future.cancel(true);

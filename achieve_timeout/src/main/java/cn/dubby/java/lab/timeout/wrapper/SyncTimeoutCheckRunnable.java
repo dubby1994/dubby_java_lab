@@ -5,7 +5,7 @@ import cn.dubby.java.lab.timeout.trigger.TimeoutTrigger;
 /**
  * Created by yangzheng03 on 2018/1/19.
  */
-public class InterruptTimeoutCheckRunnable implements Runnable, TimeoutTrigger {
+public class SyncTimeoutCheckRunnable implements Runnable, TimeoutTrigger {
 
     /**
      * 需要中断的目标线程
@@ -19,7 +19,7 @@ public class InterruptTimeoutCheckRunnable implements Runnable, TimeoutTrigger {
 
     private long startTimestamp;
 
-    public InterruptTimeoutCheckRunnable(Thread targetThread, long timeout) {
+    public SyncTimeoutCheckRunnable(Thread targetThread, long timeout) {
         if (timeout <= 0) {
             throw new IllegalArgumentException("timeout value must greater than 0");
         }
