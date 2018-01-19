@@ -1,4 +1,4 @@
-package cn.dubby.file;
+package cn.dubby.lab.file;
 
 import java.io.IOException;
 import java.nio.file.*;

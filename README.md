@@ -1,13 +1,12 @@
 # Dubby的Java实验室
 
-> 记录平时学习Java的一些代码，关于的相关描述和解释可以在 [www.dubby.cn](www.dubby.cn) 上找到文章，这也是我的个人博客。
+>记录平时学习Java的一些代码，关于的相关描述和解释可以在 [www.dubby.cn](www.dubby.cn) 上找到文章，这也是我的个人博客。
 
 ## achieve_timeout
 
 实现超时控制。其中实现了两种常见的超时处理，一种是同步超时处理，目标方法需要可以相应线程的interrupt事件，另一种是异步超时处理，这种方式对目标方法没有要求，但是需要两个辅助线程来处理。
 
 >了解Hystrix或者其他断路器的朋友应该都了解超时处理，那么具体是怎么实现的呢？
-
 
 ## multithreading_download
 
@@ -18,10 +17,6 @@
 ## socks_proxy
 
 基于Netty实现一个socks代理工具
-
-## file_tools
-
-使用Java的文件处理相关的API
 
 ## id_generator
 
