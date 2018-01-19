@@ -5,6 +5,8 @@ package cn.dubby.java.lab.timeout.method;
  */
 public interface Method {
 
+    long timeout = 100;
+
     String doSomeThing(String someThing);
 
 }

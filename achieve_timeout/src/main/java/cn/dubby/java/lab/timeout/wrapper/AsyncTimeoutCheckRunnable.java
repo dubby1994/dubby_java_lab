@@ -1,14 +1,18 @@
 package cn.dubby.java.lab.timeout.wrapper;
 
+import cn.dubby.java.lab.timeout.trigger.TimeoutTrigger;
+
+import java.util.concurrent.Future;
+
 /**
  * Created by yangzheng03 on 2018/1/19.
  */
-public class TimeoutCheckRunnable implements Runnable {
+public class AsyncTimeoutCheckRunnable implements Runnable, TimeoutTrigger {
 
     /**
      * 需要中断的目标线程
      */
-    private Thread targetThread;
+    private Future targetFuture;
 
     /**
      * 超时时间，单位:ms
@@ -17,11 +21,11 @@ public class TimeoutCheckRunnable implements Runnable {
 
     private long startTimestamp;
 
-    public TimeoutCheckRunnable(Thread targetThread, long timeout) {
+    public AsyncTimeoutCheckRunnable(Future targetFuture, long timeout) {
         if (timeout <= 0) {
             throw new IllegalArgumentException("timeout value must greater than 0");
         }
-        this.targetThread = targetThread;
+        this.targetFuture = targetFuture;
         this.timeout = timeout;
         this.startTimestamp = System.currentTimeMillis();
     }
@@ -29,7 +33,12 @@ public class TimeoutCheckRunnable implements Runnable {
     @Override
     public void run() {
         if (System.currentTimeMillis() - startTimestamp >= timeout && !Thread.interrupted()) {
-            targetThread.interrupt();
+            handleTimeout();
         }
+    }
+
+    @Override
+    public void handleTimeout() {
+        targetFuture.cancel(true);
     }
 }

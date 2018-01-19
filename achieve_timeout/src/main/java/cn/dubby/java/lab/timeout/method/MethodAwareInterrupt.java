@@ -8,7 +8,7 @@ public class MethodAwareInterrupt implements Method {
     @Override
     public String doSomeThing(String someThing) {
         try {
-            Thread.sleep(100);
+            Thread.sleep(timeout);
         } catch (InterruptedException e) {
             return "timeout occur:" + someThing;
         }

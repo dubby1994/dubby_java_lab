@@ -9,7 +9,7 @@ public class MethodAwareInterrupt2 implements Method {
     public String doSomeThing(String someThing) {
         synchronized (this) {
             try {
-                this.wait(100);
+                this.wait(timeout);
             } catch (InterruptedException e) {
                 return "timeout occur:" + someThing;
             }
