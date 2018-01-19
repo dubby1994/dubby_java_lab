@@ -29,6 +29,7 @@
         <module>id_generator</module>
         <module>secret_tools</module>
         <module>qrcode</module>
+        <module>achieve_timeout</module>
     </modules>
 
 </project>
