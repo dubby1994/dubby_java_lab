@@ -26,7 +26,6 @@ public class ZXingTools {
         try {
             matrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);
         } catch (WriterException e) {
-            // TODO: 2017/10/16  log
             return false;
         }
 
@@ -34,11 +33,15 @@ public class ZXingTools {
         try {
             MatrixToImageWriter.writeToPath(matrix, "png", file.toPath());
         } catch (IOException e) {
-            // TODO: 2017/10/16  log
             return false;
         }
 
         return true;
+    }
+
+    public static String scanQRCode(String content, String fileName) {
+        File file = new File(fileName);
+        return null;
     }
 
     public static void main(String[] args) {
