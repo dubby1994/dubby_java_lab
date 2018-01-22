@@ -29,6 +29,8 @@
         <module>secret_tools</module>
         <module>qrcode</module>
         <module>achieve_timeout</module>
+        <module>java_agent</module>
+        <module>undertow-demo</module>
     </modules>
 
 </project>
